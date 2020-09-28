@@ -1,0 +1,35 @@
+<form (ngSubmit)="inscription(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="email">Nom</label>
+      <input type="text" class="form-control" id="nom"  name="nom" placeholder="Nom" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="prenom">Prenom</label>
+      <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="username">Pseudo</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Pseudo" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" class="form-control" id="password"  name="password" placeholder="Mot de passe" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="password2">Confirmer mot de passe</label>
+        <input type="password" class="form-control" id="password2"  name="password2" placeholder="Confirmer mot de passe" ngModel>
+      </div>
+    <div class="form-group">
+        <label for="email">Adresse email</label>
+        <input type="email" class="form-control" id="email"  name="email" placeholder="Adresse email" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" class="form-control" id="age"  name="age" placeholder="Age" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="phone">Numero de téléphone</label>
+        <input type="text" class="form-control" id="phone"  name="numeroPortable" placeholder="06..." ngModel>
+    </div>
+    <button type="submit" class="btn btn-primary">S'inscrire</button>
+</form>
