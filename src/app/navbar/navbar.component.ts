@@ -11,12 +11,14 @@ export class NavbarComponent implements OnInit {
   links = [
     { title: 'Home', fragment: 'accueil' },
     { title: 'Inscription', fragment: 'inscription' },
-    { title: 'Connexion', fragment: 'connexion' }
+    { title: 'Connexion', fragment: 'connection' },
+    { title: 'Profil', fragment: 'profil/:idUtilisateur'}
   ];
 
   constructor(public route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log(this.route);
    
   }
 

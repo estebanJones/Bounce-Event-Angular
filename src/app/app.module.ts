@@ -19,7 +19,7 @@ export const ROUTES : Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'connection', component: ConnectionFormComponent },
   { path: 'inscription', component: InscriptionComponent },
-  { path: 'profil/:username', component: ProfilUtilisateurComponent },
+  { path: 'profil/:idUtilisateur', component: ProfilUtilisateurComponent },
   { path: '', pathMatch: 'full', redirectTo: '/accueil' }
 ];
 

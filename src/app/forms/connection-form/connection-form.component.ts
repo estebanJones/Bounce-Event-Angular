@@ -28,8 +28,9 @@ export class ConnectionFormComponent implements OnInit {
                                   utilisateur.imageUrl = "loool.png";
                                   utilisateur.resterConnecter = form.value.resterConnecter;
                                   utilisateur.tokenConnection = data['tokenConnection'];
-                                  //localStorage.setItem("utilisateur", utilisateur) ;      
-                                  this.router.navigate([`profil/${utilisateur.username}`]);
+                                  
+                                  localStorage.setItem("utilisateur", JSON.stringify(utilisateur));      
+                                  this.router.navigate([`profil/${data['idUtilisateur']}`]);
                                 },
                                   error => this.router.navigate(['']));
   }
