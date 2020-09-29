@@ -21,6 +21,7 @@ export class ConnectionFormComponent implements OnInit {
   connection(form: NgForm) {
     return this.connectionService.connection(form.value.email, form.value.password, form.value.resterConnecter)
                                  .subscribe(data => {
+                                   this.utilisateur = new Utilisateur()
                                   this.router.navigate([`profil/${data['utilisateurId']}`]);
                                 },
                                   error => this.router.navigate(['']));

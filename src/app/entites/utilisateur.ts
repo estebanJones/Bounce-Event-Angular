@@ -1,5 +1,7 @@
 export class Utilisateur {
-    email: string;
-	password: string;
+	tokenConnection: string;
+	username: string;
+	utilisateurId: number;
+	email: string;
 	resterConnecter: boolean;
 }
