@@ -14,7 +14,7 @@ export class ProfilUtilisateurComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe( params => {
       console.log(params)
-     this.idUtilisateur = params.get("idUtilisateur")
+     this.idUtilisateur = params.get('username');
     })
   }
 

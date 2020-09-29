@@ -11,6 +11,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { ProfilUtilisateurComponent } from './pages/profil-utilisateur/profil-utilisateur.component';
 import { InscriptionComponent } from './forms/inscription/inscription.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 export const ROUTES : Routes = [
@@ -18,7 +19,7 @@ export const ROUTES : Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'connection', component: ConnectionFormComponent },
   { path: 'inscription', component: InscriptionComponent },
-  { path: 'profil/:idUtilisateur', component: ProfilUtilisateurComponent },
+  { path: 'profil/:username', component: ProfilUtilisateurComponent },
   { path: '', pathMatch: 'full', redirectTo: '/accueil' }
 ];
 
@@ -28,7 +29,8 @@ export const ROUTES : Routes = [
     ConnectionFormComponent,
     AccueilComponent,
     ProfilUtilisateurComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 export class Utilisateur {
-	tokenConnection: string;
+	tokenConnection: string
 	username: string;
 	utilisateurId: number;
 	email: string;
