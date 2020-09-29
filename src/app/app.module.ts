@@ -12,6 +12,8 @@ import { ProfilUtilisateurComponent } from './pages/profil-utilisateur/profil-ut
 import { InscriptionComponent } from './forms/inscription/inscription.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarProfilComponent } from './pages/profil/navbar-profil/navbar-profil.component';
+import { DetailProfilComponent } from './pages/profil/detail-profil/detail-profil.component';
 
 
 export const ROUTES : Routes = [
@@ -30,7 +32,9 @@ export const ROUTES : Routes = [
     AccueilComponent,
     ProfilUtilisateurComponent,
     InscriptionComponent,
-    NavbarComponent
+    NavbarComponent,
+    NavbarProfilComponent,
+    DetailProfilComponent
   ],
   imports: [
     BrowserModule,
