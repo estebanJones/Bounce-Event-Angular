@@ -14,27 +14,12 @@
     </div>
   </nav> -->
 
-  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-    <li [ngbNavItem]="1">
-      <a ngbNavLink>Home</a>
-      <ng-template ngbNavContent>
-        <p>R2222.</p>
-      </ng-template>
-    </li>
-    <li [ngbNavItem]="2">
-      <a ngbNavLink>Two</a>
-      <ng-template ngbNavContent>
-        <p>E222 222</p>
-      </ng-template>
-    </li>
-    <li [ngbNavItem]="3">
-      <a ngbNavLink>Three</a>
-      <ng-template ngbNavContent>
-        <p> 333333</p>
-      </ng-template>
+  <ul ngbNav #nav="ngbNav" [activeId]="route.fragment | async" class="nav-tabs">
+    <li [ngbNavItem]="link.fragment" *ngFor="let link of links" >
+      <a ngbNavLink routerLink="." [fragment]="link.fragment">{{ link.title }}</a>
     </li>
   </ul>
   
   <div [ngbNavOutlet]="nav" class="mt-2"></div>
   
-  <pre>Active: {{ active }}</pre>
+  <!-- <pre>Active: {{ active }}</pre> -->
