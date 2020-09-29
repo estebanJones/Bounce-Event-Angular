@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Utilisateur } from 'src/app/entites/utilisateur';
+import { CacheService } from 'src/app/services/cache.service';
 import { ConnectionServiceService } from 'src/app/services/connection-service.service';
-
+CacheService
 @Component({
   selector: 'app-connection-form',
   templateUrl: './connection-form.component.html',
@@ -24,7 +25,10 @@ export class ConnectionFormComponent implements OnInit {
                                  .subscribe(data => {
                                   utilisateur.username = data['username'];
                                   utilisateur.email = data['email'];
-                                                                 
+                                  utilisateur.imageUrl = "loool.png";
+                                  utilisateur.resterConnecter = form.value.resterConnecter;
+                                  utilisateur.tokenConnection = data['tokenConnection'];
+                                  //localStorage.setItem("utilisateur", utilisateur) ;      
                                   this.router.navigate([`profil/${utilisateur.username}`]);
                                 },
                                   error => this.router.navigate(['']));

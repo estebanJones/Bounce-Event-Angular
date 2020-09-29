@@ -3,5 +3,6 @@ export class Utilisateur {
 	username: string;
 	utilisateurId: number;
 	email: string;
+	imageUrl: string;
 	resterConnecter: boolean;
 }
