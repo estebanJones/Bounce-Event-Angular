@@ -14,6 +14,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarProfilComponent } from './pages/profil/navbar-profil/navbar-profil.component';
 import { DetailProfilComponent } from './pages/profil/detail-profil/detail-profil.component';
+import { AdresseProfilComponent } from './pages/profil/adresse-profil/adresse-profil.component';
+import { MoyenPaiementComponent } from './pages/profil/moyen-paiement/moyen-paiement.component';
 
 
 export const ROUTES : Routes = [
@@ -34,7 +36,9 @@ export const ROUTES : Routes = [
     InscriptionComponent,
     NavbarComponent,
     NavbarProfilComponent,
-    DetailProfilComponent
+    DetailProfilComponent,
+    AdresseProfilComponent,
+    MoyenPaiementComponent
   ],
   imports: [
     BrowserModule,

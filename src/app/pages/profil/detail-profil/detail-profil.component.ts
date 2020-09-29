@@ -12,4 +12,7 @@ export class DetailProfilComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  modifier() {
+    
+  }
 }
