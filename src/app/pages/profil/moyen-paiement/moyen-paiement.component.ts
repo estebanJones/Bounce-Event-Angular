@@ -12,4 +12,7 @@ export class MoyenPaiementComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ajouterPaiement() {
+    
+  }
 }

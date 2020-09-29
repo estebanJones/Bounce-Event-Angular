@@ -18,6 +18,7 @@ import { AdresseProfilComponent } from './pages/profil/adresse-profil/adresse-pr
 import { MoyenPaiementComponent } from './pages/profil/moyen-paiement/moyen-paiement.component';
 
 
+
 export const ROUTES : Routes = [
   
   { path: 'accueil', component: AccueilComponent },
