@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Utilisateur } from 'src/app/entites/utilisateur';
 import { ConnectionServiceService } from 'src/app/services/connection-service.service';
 
@@ -11,23 +12,17 @@ import { ConnectionServiceService } from 'src/app/services/connection-service.se
 export class ConnectionFormComponent implements OnInit {
 
   utilisateur: Utilisateur = null;
-  constructor(private connectionService: ConnectionServiceService) { }
+  constructor(private connectionService: ConnectionServiceService, private router : Router) { }
 
   ngOnInit(): void {
   }
 
 
   connection(form: NgForm) {
-    console.log("salut " + form.value.email);
-    console.log("salut " + form.value.password);
-    console.log("salut " + form.value.resterConnecter);
-
-
     return this.connectionService.connection(form.value.email, form.value.password, form.value.resterConnecter)
                                  .subscribe(data => {
-                                    console.log("data ", data);
+                                  this.router.navigate([`profil/${data['utilisateurId']}`]);
                                 },
-                                  error => console.log(error)
-    );
+                                  error => this.router.navigate(['']));
   }
 }
