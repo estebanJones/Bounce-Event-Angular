@@ -16,6 +16,7 @@ import { NavbarProfilComponent } from './pages/profil/navbar-profil/navbar-profi
 import { DetailProfilComponent } from './pages/profil/detail-profil/detail-profil.component';
 import { AdresseProfilComponent } from './pages/profil/adresse-profil/adresse-profil.component';
 import { MoyenPaiementComponent } from './pages/profil/moyen-paiement/moyen-paiement.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -46,7 +47,8 @@ export const ROUTES : Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(ROUTES),
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [ConnectionServiceService],
   bootstrap: [AppComponent]

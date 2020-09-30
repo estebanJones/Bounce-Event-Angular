@@ -1,9 +1,37 @@
-<ul ngbNav #nav="ngbNav" [activeId]="route.fragment | async" class="nav-tabs">
-    <li [ngbNavItem]="link.fragment" *ngFor="let link of links" >
-      <a ngbNavLink [routerLink]="link.fragment" [fragment]="link.fragment">{{ link.title }}</a>
-    </li>
-</ul>
-  
-<div [ngbNavOutlet]="nav" class="mt-2"></div>
-  
-  <!-- <pre>Active: {{ active }}</pre> -->
+<!--NAVBAR-->
+<div class="navbar-container">
+  <nav ngbNav #nav="ngbNav" class="navbar navbar-expand-lg navbar-dark" [activeId]="route.fragment | async">
+    <div class="container">
+
+      <div *ngFor="let link of links; let i = index">
+        <div *ngIf="i < links.length">
+          <!-- HOME -->
+          <a ngbNavItem class="navbar-brand fade-page" *ngIf="link.fragment == 'accueil'" ngbNavLink
+            [routerLink]="'accueil'"><img alt="Bounce Events" [src]="cheminImage" /></a>
+
+          <!-- CONNEXION/INSCRIPTION -->
+
+          <div ngbNavItem>
+            <a ngbNavItem *ngIf="link.fragment == 'connection'" ngbNavLink
+              [routerLink]="'connection'">{{ link.title }}</a>
+          </div>
+          <div ngbNavItem class=" nav-item ">
+            <a ngbNavItem *ngIf="link.fragment == 'inscription'" ngbNavLink
+              [routerLink]="'inscription'">{{ link.title }}</a>
+          </div>
+          <!-- PROFIL -->
+          <div ngbNavItem class=" nav-item ">
+            <a ngbNavItem *ngIf="link.fragment == 'profil/:idUtilisateur'" ngbNavLink
+              [routerLink]="link.fragment"><fa-icon [icon]="faUserCircle"></fa-icon></a>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Fin Container-->
+    </div>
+    <div [ngbNavOutlet]="nav"></div>
+  </nav>
+  <!-- Fin Container Nav Bar-->
+</div>
