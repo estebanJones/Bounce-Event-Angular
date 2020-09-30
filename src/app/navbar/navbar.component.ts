@@ -15,18 +15,22 @@ export class NavbarComponent implements OnInit {
     { title: 'Connexion', fragment: 'connection' },
     { title: 'Profil', fragment: 'profil/:idUtilisateur'}
   ];
-  
+
   faUserCircle = faUserCircle;
   
+ 
 
   constructor(public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log(this.route);
+
    
   }
 
   onClick(){
     console.log("link", this.links)
+  }
+  onClickProfile() {
+  
   }
 }
