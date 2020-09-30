@@ -8,13 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfilUtilisateurComponent implements OnInit {
   idUtilisateur: string = "?";
+  utilisateur = {};
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe( params => {
-      console.log(params)
-     this.idUtilisateur = params.get('username');
+      this.utilisateur =  localStorage.getItem("utilisateur");
+      this.activatedRoute.paramMap.subscribe( params => {
+      this.idUtilisateur = params.get('username');
     })
   }
 

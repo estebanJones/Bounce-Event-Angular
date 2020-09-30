@@ -16,11 +16,9 @@ export class InscriptionComponent implements OnInit {
   }
 
   inscription(form: NgForm) {
-    console.log("form ", form);
     this.inscriptionService.inscription(form.value['age'], form.value['nom'], form.value['prenom'], form.value['email'], 
     form.value['numeroPortable'], form.value['password'], form.value['username'])
                            .subscribe(data => console.log("data", data),
-                           error => console.log(error),
-                           () => {});
+                           error => console.log(error));
   }
 }

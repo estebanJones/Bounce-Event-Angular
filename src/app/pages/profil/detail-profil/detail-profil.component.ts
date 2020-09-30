@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Utilisateur } from 'src/app/entites/utilisateur';
 
 @Component({
   selector: 'app-detail-profil',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-profil.component.css']
 })
 export class DetailProfilComponent implements OnInit {
+  @Input()
+  utilisateurCache : string;
 
+  infosUtilisateur: any;
   constructor() { }
 
   ngOnInit(): void {
+    this.infosUtilisateur = JSON.parse(this.utilisateurCache);
+    console.log("photoUrl ",this.infosUtilisateur.imageUrl);
   }
 
   modifier() {
