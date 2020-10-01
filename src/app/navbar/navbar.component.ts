@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   ];
 
   faUserCircle = faUserCircle;
-  
+  isActive = true;
  
 
   constructor(public route: ActivatedRoute) { }

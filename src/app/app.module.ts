@@ -17,7 +17,8 @@ import { DetailProfilComponent } from './pages/profil/detail-profil/detail-profi
 import { AdresseProfilComponent } from './pages/profil/adresse-profil/adresse-profil.component';
 import { MoyenPaiementComponent } from './pages/profil/moyen-paiement/moyen-paiement.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TestProfilComponent } from './test-profil/test-profil.component';
+import { CarousselComponent } from './carroussel/caroussel/caroussel.component';
+import { ModalComponent } from './pages/modal/modal.component';
 
 
 
@@ -27,7 +28,7 @@ export const ROUTES : Routes = [
   { path: 'connection', component: ConnectionFormComponent },
   { path: 'inscription', component: InscriptionComponent },
   { path: 'profil/:idUtilisateur', component: ProfilUtilisateurComponent },
-  { path: 'profil/lol/test', component: TestProfilComponent },
+
   { path: '', pathMatch: 'full', redirectTo: '/accueil' }
 ];
 
@@ -43,7 +44,8 @@ export const ROUTES : Routes = [
     DetailProfilComponent,
     AdresseProfilComponent,
     MoyenPaiementComponent,
-    TestProfilComponent
+    CarousselComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

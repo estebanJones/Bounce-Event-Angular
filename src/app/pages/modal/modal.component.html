@@ -1,0 +1,29 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="login(f)" #f="ngForm">
+            <div class="form-group">
+              <label for="username">Nom d'utilisateur</label>
+              <input type="text" class="form-control" id="username"  name="username" placeholder="Nom d'utilisateur" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" ngModel>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="resterConnecter" id="resterConnecter" ngModel>
+              <label class="form-check-label" for="resterConnecter">Rester connecter</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Connection</button>
+        </form>
+        
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
