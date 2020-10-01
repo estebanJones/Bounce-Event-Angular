@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
     { title: 'Home', fragment: 'accueil' },
     { title: 'Inscription', fragment: 'inscription' },
     { title: 'Connexion', fragment: 'connection' },
-    { title: 'Profil', fragment: 'profil/:idUtilisateur'}
+    { title: 'Profil', fragment: 'profil/:idUtilisateur'},
   ];
   
   faUserCircle = faUserCircle;

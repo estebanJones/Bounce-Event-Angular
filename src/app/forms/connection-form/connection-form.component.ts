@@ -29,7 +29,7 @@ export class ConnectionFormComponent implements OnInit {
                                   utilisateur.tokenConnection = data['tokenConnection'];
                                   
                                   localStorage.setItem("utilisateur", JSON.stringify(utilisateur));      
-                                  this.router.navigate([`profil/${data['idUtilisateur']}`]);
+                                 // this.router.navigate([`profil/${data['idUtilisateur']}`]);
                                 },
                                   error => this.router.navigate(['']));
   }
