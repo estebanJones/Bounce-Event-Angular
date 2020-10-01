@@ -6,24 +6,29 @@
       <div *ngFor="let link of links; let i = index">
         <div *ngIf="i < links.length">
           <!-- HOME -->
-          <a ngbNavItem class="navbar-brand fade-page" *ngIf="link.fragment == 'accueil'" ngbNavLink
+          <a ngbNavItem class="ml-3 fade-page" *ngIf="link.fragment == 'accueil'" ngbNavLink
             [routerLink]="'accueil'"><img alt="Bounce Events" [src]="cheminImage" /></a>
 
-          <!-- CONNEXION/INSCRIPTION -->
 
+            <!-- Collapsable-->
+
+          <!-- CONNEXION/INSCRIPTION -->
+          <div class="justify-content-right">
           <div ngbNavItem>
             <a ngbNavItem *ngIf="link.fragment == 'connection'" ngbNavLink
               [routerLink]="'connection'">{{ link.title }}</a>
           </div>
-          <div ngbNavItem class=" nav-item ">
+          <div ngbNavItem class="nav-item ">
             <a ngbNavItem *ngIf="link.fragment == 'inscription'" ngbNavLink
               [routerLink]="'inscription'">{{ link.title }}</a>
           </div>
           <!-- PROFIL -->
-          <div ngbNavItem class=" nav-item ">
+          
+          <div ngbNavItem class="nav-item ">
             <a ngbNavItem *ngIf="link.fragment == 'profil/:idUtilisateur'" ngbNavLink
-              [routerLink]="link.fragment"><fa-icon [icon]="faUserCircle"></fa-icon></a>
+              [routerLink]="link.fragment"  (click)="onClickProfile()"> <fa-icon class="userIcon" [icon]="faUserCircle"  [class.active]="isActive"></fa-icon></a>
           </div>
+        </div>
 
         </div>
       </div>
