@@ -18,17 +18,17 @@ export class ModalComponent implements OnInit {
 
   login(form: NgForm) {
     
-    let utilisateur = new Utilisateur();
-    return this.connectionService.connection(form.value.username, form.value.password, form.value.resterConnecter)
-                                 .subscribe(data => {
-                                  utilisateur.username = data['username'];
-                                  utilisateur.imageUrl = "https://a.wattpad.com/useravatar/kage_itachi.256.346897.jpg";
-                                  utilisateur.resterConnecter = form.value.resterConnecter;
-                                  utilisateur.tokenConnection = data['tokenConnection'];
+    // let utilisateur = new Utilisateur();
+    // return this.connectionService.connection(form.value.username, form.value.password, form.value.resterConnecter)
+    //                              .subscribe(data => {
+    //                               utilisateur.username = data['username'];
+    //                               utilisateur.imageUrl = "https://a.wattpad.com/useravatar/kage_itachi.256.346897.jpg";
+    //                               utilisateur.resterConnecter = form.value.resterConnecter;
+    //                               utilisateur.tokenConnection = data['tokenConnection'];
                                   
-                                  localStorage.setItem("utilisateur", JSON.stringify(utilisateur));      
-                                 // this.router.navigate([`profil/${data['idUtilisateur']}`]);
-                                },
-                                  error => this.router.navigate(['']));
+    //                               localStorage.setItem("utilisateur", JSON.stringify(utilisateur));      
+    //                              // this.router.navigate([`profil/${data['idUtilisateur']}`]);
+    //                             },
+    //                               error => this.router.navigate(['']));
   }
 }

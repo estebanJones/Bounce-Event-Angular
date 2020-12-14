@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ConnectionFormComponent } from './forms/connection-form/connection-form.component';
-import { ConnectionServiceService } from './services/connection-service.service';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ProfilUtilisateurComponent } from './pages/profil-utilisateur/profil-utilisateur.component';
@@ -19,18 +17,11 @@ import { MoyenPaiementComponent } from './pages/profil/moyen-paiement/moyen-paie
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarousselComponent } from './carroussel/caroussel/caroussel.component';
 import { ModalComponent } from './pages/modal/modal.component';
-
-
-
-export const ROUTES : Routes = [
-  
-  { path: 'accueil', component: AccueilComponent },
-  { path: 'connection', component: ConnectionFormComponent },
-  { path: 'inscription', component: InscriptionComponent },
-  { path: 'profil/:idUtilisateur', component: ProfilUtilisateurComponent },
-
-  { path: '', pathMatch: 'full', redirectTo: '/accueil' }
-];
+import { AuthComponent } from './auth/auth.component';
+import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { MenuService } from './services/menu.service';
 
 @NgModule({
   declarations: [
@@ -45,17 +36,26 @@ export const ROUTES : Routes = [
     AdresseProfilComponent,
     MoyenPaiementComponent,
     CarousselComponent,
-    ModalComponent
+    ModalComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES),
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CommonModule,
+    AppRoutingModule
   ],
-  providers: [ConnectionServiceService],
+  providers: [{
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
+    MenuService
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

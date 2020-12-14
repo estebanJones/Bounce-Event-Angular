@@ -1,8 +1,16 @@
 export class Utilisateur {
-	tokenConnection: string
-	username: string;
-	utilisateurId: number;
+	id: number;
+	nom: string;
+	prenom: string;
 	email: string;
-	imageUrl: string;
-	resterConnecter: boolean;
+	password: string;
+	roles: string[];
+
+	constructor(params: any) {
+		Object.assign(this, params);
+	}
+
+	estAnonyme() : boolean {
+		return this.email === undefined;
+	}
 }

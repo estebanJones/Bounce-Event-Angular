@@ -18,13 +18,13 @@
             <a ngbNavItem *ngIf="link.fragment == 'connection'" ngbNavLink
               [routerLink]="'connection'">{{ link.title }}</a>
           </div>
-          <div ngbNavItem class="nav-item ">
+          <div ngbNavItem class="nav-item">
             <a ngbNavItem *ngIf="link.fragment == 'inscription'" ngbNavLink
               [routerLink]="'inscription'">{{ link.title }}</a>
           </div>
           <!-- PROFIL -->
           
-          <div ngbNavItem class="nav-item ">
+          <div ngbNavItem class="nav-item">
             <a ngbNavItem *ngIf="link.fragment == 'profil/:idUtilisateur'" ngbNavLink
               [routerLink]="link.fragment"  (click)="onClickProfile()"> <fa-icon class="userIcon" [icon]="faUserCircle"  [class.active]="isActive"></fa-icon></a>
           </div>
