@@ -13,10 +13,11 @@ export class ServiceNameService {
 export class ConnectionServiceService {
   
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
 
   connection(username: string, password: string, resterConnecter: boolean) : Observable<Object> {
+    console.log("la");
     const httpOptions = {
     headers: new HttpHeaders({
         "Access-Control-Allow-Origin": "*",

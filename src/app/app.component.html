@@ -4,5 +4,19 @@
 
 <router-outlet></router-outlet>
 
+<footer class="site-footer align-content-center">
 
+    <!--  <h1 class="display-4">Gestion des Absences</h1> -->
+    <ng-container *ngIf="utilisateurConnecte | async as utilisateur">
+      <div class="wrapper" *ngIf="!utilisateur.estAnonyme()">
+
+
+        <p class="col-12 text-center mt-4"> Utilisateur : {{utilisateur.email}} | Le rôle : {{getRoles(utilisateur)}} | L'ID :
+          {{ getId() }} </p>
+
+
+      </div>
+    </ng-container>
+
+  </footer>
 </main>

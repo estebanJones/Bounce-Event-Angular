@@ -20,6 +20,7 @@ export class AuthComponent implements OnInit {
   }
 
   connecter() : void {
+    console.log("ici");
     this.authSrv.connecter(this.utilisateur.email, this.utilisateur.password)
       .subscribe(
        

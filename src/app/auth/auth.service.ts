@@ -46,7 +46,7 @@ export class AuthService {
                     map(utilisateurServeur => new Utilisateur(utilisateurServeur)),
                     tap(col => this.utilisateurConnecteSub.next(col)),
                     catchError(err => of(UTILISATEUR_ANONYME))
-                  ) :     of(this.utilisateurConnecteSub.getValue());
+                  )   :   of(this.utilisateurConnecteSub.getValue());
   }
 
   /**
@@ -96,6 +96,5 @@ export class AuthService {
 
   isAuthenticated() : boolean {
     return localStorage.getItem("idUtilisateur") != null ? true : false;
-
   }
 }
