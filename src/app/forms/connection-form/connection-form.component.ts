@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Utilisateur } from 'src/app/entites/utilisateur';
@@ -10,12 +10,16 @@ import { ConnectionServiceService } from 'src/app/services/connection-service.se
   styleUrls: ['./connection-form.component.css']
 })
 export class ConnectionFormComponent implements OnInit {
+  @Output() goToSubscribe: EventEmitter<boolean> = new EventEmitter();
   
   constructor(private connectionService: ConnectionServiceService, private router : Router) { }
   
   ngOnInit(): void {
   }
   
+  onGoToSubscribe(bool : boolean){
+    this.goToSubscribe.emit(bool);
+  }
   
   login(form: NgForm) {
     

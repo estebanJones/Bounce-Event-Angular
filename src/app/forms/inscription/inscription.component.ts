@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { cpuUsage } from 'process';
 import { InscriptionService } from 'src/app/services/inscription.service';
@@ -9,10 +9,15 @@ import { InscriptionService } from 'src/app/services/inscription.service';
   styleUrls: ['./inscription.component.css']
 })
 export class InscriptionComponent implements OnInit {
-
+  @Output() goToConnexion: EventEmitter<boolean> = new EventEmitter();
   constructor(private inscriptionService : InscriptionService) { }
 
   ngOnInit(): void {
+  }
+
+  
+  onGoToConnexion(bool : boolean){
+    this.goToConnexion.emit(bool);
   }
 
   inscription(form: NgForm) {

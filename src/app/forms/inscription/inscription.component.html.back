@@ -1,6 +1,4 @@
-<!-- Première version -->
-
- <form class="col-12"(ngSubmit)="inscription(f)" #f="ngForm">
+<form class="bg-dark col-6"(ngSubmit)="inscription(f)" #f="ngForm">
     <div class="form-group">
       <label for="email">Nom</label>
       <input type="text" class="form-control" id="nom"  name="nom" placeholder="Nom" ngModel>
@@ -34,8 +32,4 @@
         <input type="text" class="form-control" id="phone"  name="numeroPortable" placeholder="06..." ngModel>
     </div>
     <button type="submit" class="btn btn-primary">S'inscrire</button>
-    <div class="col-12">
-    <p>Déjà inscrit ? <a (click)="onGoToConnexion(true)">Se connecter</a></p>
-  </div>
-</form> 
-
+</form>
