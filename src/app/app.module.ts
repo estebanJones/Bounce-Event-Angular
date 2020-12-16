@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { AccueilComponent } from './accueil/accueil.component';
 import { ProfilUtilisateurComponent } from './pages/profil-utilisateur/profil-utilisateur.component';
 import { InscriptionComponent } from './forms/inscription/inscription.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarProfilComponent } from './pages/profil/navbar-profil/navbar-profil.component';
 import { DetailProfilComponent } from './pages/profil/detail-profil/detail-profil.component';
@@ -46,7 +46,8 @@ import { MenuService } from './services/menu.service';
     NgbModule,
     FontAwesomeModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModalModule,
   ],
   providers: [{
       provide: HTTP_INTERCEPTORS,

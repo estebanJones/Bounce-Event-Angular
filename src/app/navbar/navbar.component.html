@@ -10,33 +10,76 @@
             [routerLink]="'accueil'"><img alt="Bounce Events" [src]="cheminImage" /></a>
 
 
-            <!-- Collapsable-->
+          <!-- Collapsable-->
 
           <!-- CONNEXION/INSCRIPTION -->
           <div class="justify-content-right">
-          <div ngbNavItem>
-            <a ngbNavItem *ngIf="link.fragment == 'connection'" ngbNavLink
-              [routerLink]="'connection'">{{ link.title }}</a>
+            <div ngbNavItem>
+              <a ngbNavItem *ngIf="link.fragment == 'connection'" ngbNavLink [routerLink]="'connection'">{{ link.title
+                }}</a>
+            </div>
+            <div ngbNavItem class="nav-item">
+              <a ngbNavItem *ngIf="link.fragment == 'inscription'" ngbNavLink [routerLink]="'inscription'">{{ link.title
+                }}</a>
+              <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">S'inscrire</button> -->
+            </div>
+            <!-- PROFIL -->
+
+            <div ngbNavItem class="nav-item">
+              <a ngbNavItem *ngIf="link.fragment == 'profil/:idUtilisateur'" ngbNavLink [routerLink]="link.fragment"
+                (click)="onClickProfile()">
+                <fa-icon class="userIcon" [icon]="faUserCircle" [class.active]="isActive"></fa-icon>
+              </a>
+            </div>
+
           </div>
-          <div ngbNavItem class="nav-item">
-            <a ngbNavItem *ngIf="link.fragment == 'inscription'" ngbNavLink
-              [routerLink]="'inscription'">{{ link.title }}</a>
-          </div>
-          <!-- PROFIL -->
-          
-          <div ngbNavItem class="nav-item">
-            <a ngbNavItem *ngIf="link.fragment == 'profil/:idUtilisateur'" ngbNavLink
-              [routerLink]="link.fragment"  (click)="onClickProfile()"> <fa-icon class="userIcon" [icon]="faUserCircle"  [class.active]="isActive"></fa-icon></a>
-          </div>
-        </div>
 
         </div>
       </div>
 
-
+      <button class="btn btn-lg btn-outline-primary" (click)="open(content)">S'inscrire</button>
       <!-- Fin Container-->
     </div>
     <div [ngbNavOutlet]="nav"></div>
   </nav>
   <!-- Fin Container Nav Bar-->
 </div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title" *ngIf="this.connexionActive">Connexion</h4>
+    <h4 class="modal-title" id="modal-basic-title" *ngIf="this.inscriptionActive">Inscription</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ng-container *ngIf="inscriptionActive" 
+    [ngTemplateOutlet]=inscription
+    >
+    </ng-container>
+
+    <ng-container *ngIf="connexionActive"
+        [ngTemplateOutlet]=connexion
+        >
+        </ng-container>
+
+  </div>
+
+  <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div> -->
+</ng-template>
+
+<ng-template #inscription>
+  <app-inscription
+  (goToConnexion)="onClickConnexion($event)"
+  ></app-inscription>
+</ng-template>
+
+<ng-template #connexion>
+  <app-connection-form 
+  (goToSubscribe)="onClickInscription($event)"
+  ></app-connection-form>
+</ng-template>
