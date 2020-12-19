@@ -9,6 +9,13 @@
     <input type="password" name="password" [(ngModel)]="utilisateur.password"  class="form-control" id="exampleInputPassword1"  aria-describedby="passwordHelp">
     <!-- <small id="passwordHelp" class="form-text text-muted">superpass</small> -->
   </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" name="resterConnecter" id="resterConnecter" ngModel>
+    <label class="form-check-label" for="resterConnecter">Rester connecté</label>
+  </div>
+  <div class="col-12">
+    <p>Vous n'avez pas de compte ? <a (click)="onGoToSubscribe(true)">S'inscrire</a> </p>
+  </div>
   <button type="submit" class="btn btn-primary" (click)="connecter()">Se connecter</button>
   <div *ngIf="err" class="alert alert-danger mt-1" role="alert">
     Vos informations d'authentification sont invalides.

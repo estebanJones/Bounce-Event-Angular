@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Utilisateur } from '../entites/utilisateur';
 import { MenuService } from '../services/menu.service';
@@ -10,6 +10,7 @@ import { AuthService } from './auth.service';
   styleUrls: ['./auth.component.css']
 })
 export class AuthComponent implements OnInit {
+  @Output() goToSubscribe: EventEmitter<boolean> = new EventEmitter();
   utilisateur : Utilisateur = new Utilisateur({});
   err : boolean;
 
@@ -43,5 +44,9 @@ export class AuthComponent implements OnInit {
 
   getRoles(utilisateur: Utilisateur) : string {
     return this.menuService.recupererRoleUtilisateur(utilisateur);
+  }
+
+  onGoToSubscribe(bool : boolean){
+    this.goToSubscribe.emit(bool);
   }
 }

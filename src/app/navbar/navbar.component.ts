@@ -35,8 +35,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.connexionActive = this.authService.isAuthenticated();
     this.inscriptionActive = !this.connexionActive;
-    console.log("connexion active" , this.connexionActive);
-    console.log("inscription active" , this.inscriptionActive);
   }
 
   onClickConnexion(bool : boolean){

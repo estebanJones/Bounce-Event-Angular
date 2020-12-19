@@ -19,9 +19,10 @@
                 }}</a>
             </div>
             <div ngbNavItem class="nav-item">
-              <a ngbNavItem *ngIf="link.fragment == 'inscription'" ngbNavLink [routerLink]="'inscription'">{{ link.title
-                }}</a>
-              <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">S'inscrire</button> -->
+              <button class="btn btn-lg btn-outline-primary" ngbNavItem *ngIf="link.fragment == 'inscription'" 
+              (click)="open(content)">{{ link.title
+                }}</button>
+     
             </div>
             <!-- PROFIL -->
 
@@ -37,7 +38,7 @@
         </div>
       </div>
 
-      <button class="btn btn-lg btn-outline-primary" (click)="open(content)">S'inscrire</button>
+      <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">S'inscrire</button> -->
       <!-- Fin Container-->
     </div>
     <div [ngbNavOutlet]="nav"></div>
@@ -79,7 +80,7 @@
 </ng-template>
 
 <ng-template #connexion>
-  <app-connection-form 
+  <app-auth
   (goToSubscribe)="onClickInscription($event)"
-  ></app-connection-form>
+  ></app-auth>
 </ng-template>

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ConnectionFormComponent } from './forms/connection-form/connection-form.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -26,7 +25,6 @@ import { MenuService } from './services/menu.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ConnectionFormComponent,
     AccueilComponent,
     ProfilUtilisateurComponent,
     InscriptionComponent,
