@@ -27,7 +27,7 @@
             <!-- PROFIL -->
 
             <div ngbNavItem class="nav-item">
-              <a ngbNavItem *ngIf="link.fragment == 'profil/:idUtilisateur'" ngbNavLink [routerLink]="link.fragment"
+              <a ngbNavItem *ngIf="link.fragment == 'profil/:idUtilisateur'" ngbNavLink
                 (click)="onClickProfile()">
                 <fa-icon class="userIcon" [icon]="faUserCircle" [class.active]="isActive"></fa-icon>
               </a>

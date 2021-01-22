@@ -2,9 +2,10 @@
 <ul ngbNav #nav="ngbNav" [activeId]="route.fragment | async" class="nav-tabs">
     <li [ngbNavItem]="link.fragment" *ngFor="let link of links" >
       <a ngbNavLink [routerLink]="link.fragment" [fragment]="link.fragment">{{ link.title }}</a>
+      
     </li>
 </ul>
-  
+ 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
   
   <!-- <pre>Active: {{ active }}</pre> -->

@@ -4,6 +4,7 @@ import { of, BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {catchError, map, tap} from 'rxjs/operators';
+import { LocalStorageWrapperService } from '../wrappers/local-storage-wrapper.service';
   /**
  * Collègue anonyme.
  *
@@ -23,7 +24,7 @@ export class AuthService {
    */
   private utilisateurConnecteSub: BehaviorSubject<Utilisateur> = new BehaviorSubject(UTILISATEUR_ANONYME);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _localStorage: LocalStorageWrapperService) { }
 
     /**
    * Interface Observable du collègue connecté.
@@ -85,8 +86,8 @@ export class AuthService {
       })
     };
 
-    localStorage.removeItem("idUtilisateur");
-    localStorage.removeItem("roleUtilisateur");
+    this._localStorage.removeItemToLocalStorage("idUtilisateur");
+    this._localStorage.removeItemToLocalStorage("roleUtilisateur");
 
     return this.http.post<Utilisateur>(`${environment.baseUrl}${environment.apiLogout}`, null , config)
       .pipe(

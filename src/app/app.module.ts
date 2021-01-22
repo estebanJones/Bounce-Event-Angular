@@ -5,10 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AccueilComponent } from './accueil/accueil.component';
-import { ProfilUtilisateurComponent } from './pages/profil-utilisateur/profil-utilisateur.component';
 import { InscriptionComponent } from './forms/inscription/inscription.component';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarProfilComponent } from './pages/profil/navbar-profil/navbar-profil.component';
 import { DetailProfilComponent } from './pages/profil/detail-profil/detail-profil.component';
 import { AdresseProfilComponent } from './pages/profil/adresse-profil/adresse-profil.component';
@@ -21,6 +19,8 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { MenuService } from './services/menu.service';
+import { ProfilUtilisateurComponent } from './pages/profil/profil-utilisateur/profil-utilisateur.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { MenuService } from './services/menu.service';
     MoyenPaiementComponent,
     CarousselComponent,
     ModalComponent,
-    AuthComponent
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

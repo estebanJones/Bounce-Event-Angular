@@ -9,8 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 export class NavbarProfilComponent implements OnInit {
 
   links = [
-    { title: 'Profil', fragment: 'profil/:idUtilisateur' },
-    { title: 'Commandes', fragment: 'inscription' },
+    { title: 'Profil', fragment: 'details' },
+    { title: 'Commandes', fragment: 'commandes' },
     { title: 'Paramètres', fragment: 'connection' },
   ];
 

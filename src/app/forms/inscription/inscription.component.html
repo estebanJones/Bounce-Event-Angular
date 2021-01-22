@@ -1,6 +1,27 @@
 <!-- Première version -->
+<strong>Création de compte</strong>
+<p>Choisissez votre adresse de messagerie et votre mot de passe</p>
+
 
  <form class="col-12"(ngSubmit)="inscription(f)" #f="ngForm">
+   <div class="form-group">
+       <label for="email">Adresse email</label>
+       <input type="email" class="form-control" id="email"  name="email" placeholder="Adresse email" ngModel>
+   </div>
+   <div class="form-group">
+       <label for="password">Mot de passe</label>
+       <input type="password" class="form-control" id="password"  name="password" placeholder="Mot de passe" ngModel>
+   </div>
+   <div class="form-group">
+       <label for="password2">Confirmer mot de passe</label>
+       <input type="password" class="form-control" id="password2"  name="password2" placeholder="Confirmer mot de passe" ngModel>
+   </div>
+
+
+    <div class="form-group form-check form-check-inline" *ngFor="let c of civilites">
+      <input class="form-check-input" name="civilite" value={{c}} type="radio" id="type" ngModel>
+      <label class="form-check-label" for="type">{{c}}</label>
+    </div>
     <div class="form-group">
       <label for="email">Nom</label>
       <input type="text" class="form-control" id="nom"  name="nom" placeholder="Nom" ngModel>
@@ -14,24 +35,40 @@
         <input type="text" class="form-control" id="username" name="username" placeholder="Pseudo" ngModel>
     </div>
     <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" class="form-control" id="password"  name="password" placeholder="Mot de passe" ngModel>
+      <label for="numeroRue">Numéro de la voie</label>
+      <input type="text" class="form-control" id="numeroRue" name="numeroRue" placeholder="95" ngModel>
     </div>
     <div class="form-group">
-        <label for="password2">Confirmer mot de passe</label>
-        <input type="password" class="form-control" id="password2"  name="password2" placeholder="Confirmer mot de passe" ngModel>
-      </div>
-    <div class="form-group">
-        <label for="email">Adresse email</label>
-        <input type="email" class="form-control" id="email"  name="email" placeholder="Adresse email" ngModel>
+      <label for="libelleRue">libellé de la voie</label>
+      <input type="text" class="form-control" id="libelleRue" name="libelleRue" placeholder="rue/avenue...etc" ngModel>
     </div>
     <div class="form-group">
-        <label for="age">Age</label>
-        <input type="text" class="form-control" id="age"  name="age" placeholder="Age" ngModel>
+      <label for="batiment">Immeuble, Bâtiment, Résidence</label>
+      <input type="text" class="form-control" id="batiment" name="batiment" ngModel>
     </div>
     <div class="form-group">
-        <label for="phone">Numero de téléphone</label>
-        <input type="text" class="form-control" id="phone"  name="numeroPortable" placeholder="06..." ngModel>
+      <label for="lieuDit">Lieu-dit, boite postale, etc.</label>
+      <input type="text" class="form-control" id="lieuDit" name="lieuDit" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="codePostal">Code postal</label>
+      <input type="text" class="form-control" id="codePostal"  name="codePostal" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="ville">Ville</label>
+      <input type="text" class="form-control" id="ville"  name="ville" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="pays">Pays</label>
+      <input type="text" class="form-control" id="pays"  name="pays" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="phone">Numero de téléphone</label>
+      <input type="text" class="form-control" id="phone"  name="numeroPortable" placeholder="06..." ngModel>
+    </div>
+    <div class="form-group">
+        <label for="dateNaissance">Date de naissance</label>
+        <input type="date" class="form-control" id="dateNaissance"  name="dateNaissance" [value]="dateNaissance" ngModel>
     </div>
     <button type="submit" class="btn btn-primary">S'inscrire</button>
     <div class="col-12">

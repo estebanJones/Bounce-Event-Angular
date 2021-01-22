@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from '../auth/auth.service';
 import { InscriptionComponent } from '../forms/inscription/inscription.component';
 import { ModalComponent } from '../modal/modal.component';
+import { LocalStorageWrapperService } from '../wrappers/local-storage-wrapper.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,11 +18,12 @@ export class NavbarComponent implements OnInit {
   @ViewChild(InscriptionComponent) inscription : InscriptionComponent;
 
   cheminImage = 'assets/Logo.png';
+  idUtilisateur : string = "";
   links = [
     { title: 'Home', fragment: 'accueil' },
     { title: 'Inscription', fragment: 'inscription' },
     { title: 'Connexion', fragment: 'connection' },
-    { title: 'Profil', fragment: 'profil/:idUtilisateur'},
+    { title: 'Profil', fragment: `profil/:idUtilisateur`}
   ];
 
   faUserCircle = faUserCircle;
@@ -30,11 +32,13 @@ export class NavbarComponent implements OnInit {
   connexionActive : boolean ;
   inscriptionActive : boolean;
 
-  constructor(public route: ActivatedRoute, private modalService: NgbModal, private authService : AuthService) { }
+  constructor(private _router: Router, public route: ActivatedRoute, private modalService: NgbModal, private authService : AuthService, 
+    private _localStorage : LocalStorageWrapperService) { }
 
   ngOnInit(): void {
     this.connexionActive = this.authService.isAuthenticated();
     this.inscriptionActive = !this.connexionActive;
+    this.idUtilisateur = this._localStorage.getItemLocalStorage("idUtilisateur");
   }
 
   onClickConnexion(bool : boolean){
@@ -47,12 +51,8 @@ export class NavbarComponent implements OnInit {
     this.connexionActive = !this.inscriptionActive;
     }
 
-  onClick(){
-    console.log("link", this.links)
-  }
-
   onClickProfile() {
-  
+    this._router.navigate(['/profil', this.idUtilisateur])
   }
 
   

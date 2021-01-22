@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Utilisateur } from '../entites/utilisateur';
 import { MenuService } from '../services/menu.service';
+import { LocalStorageWrapperService } from '../wrappers/local-storage-wrapper.service';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -15,23 +16,23 @@ export class AuthComponent implements OnInit {
   err : boolean;
 
 
-  constructor(private authSrv: AuthService, private router: Router, private menuService : MenuService) { }
+  constructor(private authSrv: AuthService, private router: Router, private menuService : MenuService,
+    private _localStorage : LocalStorageWrapperService) { }
 
   ngOnInit(): void {
   }
 
   connecter() : void {
-    console.log("ici");
     this.authSrv.connecter(this.utilisateur.email, this.utilisateur.password)
       .subscribe(
        
         // en cas de succès, redirection vers la page /d'acceuil
        utilisateur => {
-
           let roleUtilisateur = this.getRoles(utilisateur);
 
-          localStorage.setItem("idUtilisateur", utilisateur.id.toString());
-          localStorage.setItem("roleUtilisateur", roleUtilisateur);
+          this._localStorage.setItemToLocalStorage("idUtilisateur", utilisateur.id.toString());
+          this._localStorage.setItemToLocalStorage("roleUtilisateur", roleUtilisateur);
+
          // [`/${roleUtilisateur}/accueil`]
           this.router.navigate(['accueil']);
              

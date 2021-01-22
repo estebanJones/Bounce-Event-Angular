@@ -1,0 +1,32 @@
+export class  DtoRegister {
+	constructor(public nom: string,
+                public prenom: string,
+                public email: string,
+                public numeroPortable: string,
+                public password: string,
+                public username: string,
+                public civilite: string,
+                public numeroRue: string,
+                public libelleRue: string,
+                public ville: string,
+                public batiment: string,
+                public lieuDit: string,
+                public codePostal: string,
+                public pays: string,
+                public dateNaissance: Date){}
+    
+    // constructor(private nom: string,
+	// private prenom: string,
+	// private email: string,
+	// private numeroPortable: string,
+	// private password: string,
+	// private username: string,
+	// private civilite: string,
+	// private numeroRue: string,
+	// private libelleRue: string,
+	// private ville: string,
+	// private batiment: string,
+	// private lieuDit: string,
+	// private codePostal: string,
+	// private pays: string) {}
+}
